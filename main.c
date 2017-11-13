@@ -16,7 +16,6 @@ TREE_NODE *trail = NULL;
 int kontrol = 0;
 
 void insert_node(TREE_NODE **node, int);
-void list_values(TREE_NODE *node);
 TREE_NODE* find_value(int search);
 static int _rand(){return rand()%1000 + 1;}
 
@@ -126,36 +125,5 @@ void insert_node(TREE_NODE **node, int value)
 				insert_node(&(crawler), value);
 			}
 		}		
-	}
-}
-void list_values(TREE_NODE *node)
-{
-	if(node == NULL) {
-		if(parent->left != NULL) {
-			list_values(parent->left);
-			printf("%d\n", parent->value);
-			if(parent->right != NULL ) {
-				list_values(parent->right);
-			}
-		} else {
-			printf("$d\n", parent->value);
-			if(parent->right != NULL) {
-				list_values(parent->right);
-			}
-		}
-		return;
-	}
-	if(node->left != NULL) {
-		list_values(node->left);
-		printf("%d\n", node->value);
-		if(node->right != NULL) {
-			list_values(node->right);
-		}
-	} else {
-		printf("%d\n", node->value);
-		if(node->right != NULL) {
-			list_values(node->right);
-
-		}
 	}
 }
